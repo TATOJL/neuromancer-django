@@ -13,3 +13,7 @@ def signup(request):
     return render(request, 'signup.html', {
         'content': "Hello Django ",
     })    
+def stock(request):
+    return render(request, 'stock.html', {
+        'content': "Hello Django ",
+    })  
