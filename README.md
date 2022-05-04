@@ -28,5 +28,4 @@ python manage check
 python manage runserver
 
 ```
-127.0.0.1:8000/stock
-測試echarts頁面
+## 127.0.0.1:8000/stock測試echarts頁面
