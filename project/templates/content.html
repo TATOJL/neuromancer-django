@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+<!-- 引入靜態資料 -->
+{% block statics %}
+<script src="{% static 'js/echarts.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/landing_scss_rwd ' %}">
+<link rel="stylesheet" href="{% static 'css/content.css' %}" />
+<style>
+/* .page-1 {
+  height: 100vh;
+  background-image: url("{% static 'images/stock.jpg' %}");
+  background-size: cover;
+  position: relative;
+} */
+.page-1{
+    background-color: rgb(255, 233, 233);
+    height: 100vh;
+    text-align: center;
+    padding-top: 100px;
+}
+</style>
+{% endblock %}
+
+<!-- 標題 -->
+{% block title %}
+stock
+{% endblock %}
+
+
+<!-- header -->
+{% block header %}
+<li>
+    <a href="#">
+        <div class="en">Logout</div>
+        <div class="tw"><i class="fa fa-right-from-bracket fa-xl"></i>&nbsp; 登出</div>
+    </a>
+</li>
+
+{% endblock %}
+
+<!-- 內容 -->
+ {% block content %}
+<div class="page-1" >
+    <div class="container">     
+        <form method=post  autocomplete="off">
+            <h1  class="h3 mb-3 fw-normal"><b>股票查詢</b> </h1>
+               <!-- 股票查詢輸入框 -->
+           <div class="form-group">
+
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="請輸入股票代號" required/>
+                <span class="input-icon">
+                    <i class="fa fa-arrow-trend-up "></i>
+                </span>
+            </div> 
+          </div>   
+            <button class="w-100 btn btn-lg btn-primary" type="submit">查詢</button>
+            
+          </form>
+            <div id="stock" style ="width: 600px; height:400px;  margin:auto;  "></div>
+    </div>
+    <div class="mask"></div>
+</div>
+ 
+ <script src="{% static 'js/stock.js' %}"></script>
+ {% endblock %}

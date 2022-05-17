@@ -1,0 +1,82 @@
+@media screen and (max-width: 800px) {
+    .header .menu {
+      display: none;
+    }
+    .header .mobile-menu-switch {
+      display: block;
+    }
+    .page-1 .box {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+    }
+    .page-1 .box > div {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .page-1 .box > div:first-child::after {
+      left: 2%;
+      bottom: -30px;
+      right: unset;
+      top: unset;
+      height: 0;
+      width: 96%;
+    }
+    .flow .item {
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+    }
+    .flow .item .circle {
+      -webkit-transform: translateX(11px);
+              transform: translateX(11px);
+    }
+    .flow .item .content {
+      left: 0;
+    }
+    .flow .item::after {
+      left: 20px;
+      margin-left: 0;
+    }
+    .flow .item:nth-child(even) .content {
+      right: unset;
+      margin-right: unset;
+      left: 0;
+      margin-left: 60px;
+      text-align: left;
+    }
+    .footer .container {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-pack: start;
+          -ms-flex-pack: start;
+              justify-content: flex-start;
+    }
+    .footer .container div {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    #mobile-menu-switch-checkbox:checked + .container .menu {
+      display: block;
+      position: fixed;
+      width: 100%;
+      top: 75px;
+      left: 0;
+      background-color: #fff;
+      height: 100vh;
+      padding-top: 80px;
+    }
+    #mobile-menu-switch-checkbox:checked + .container .menu ul {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+    }
+    #mobile-menu-switch-checkbox:checked + .container .menu ul li {
+      margin-right: 0;
+      margin-bottom: 30px;
+    }
+  }

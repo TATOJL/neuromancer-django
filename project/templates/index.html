@@ -1,147 +1,180 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-  {% load static %}
-  <title>Neuromancer</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <link rel="shortcut icon" href="{% static 'images/logo.png' %}" type="image/x-icon">
-  <link rel="shortcut icon" href="{% static 'css/home.css' %}" type="image/x-icon">
-</head>
+{% load static %}
 
-<body>
+<!-- 引入靜態資料 -->
+{% block statics %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/top_button.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="{% static 'css/home_rwd.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'css/landing_scss_rwd.css' %}"> -->
+<style>
+.page-1 {
+  height: 100vh;
+  background-image: url("{% static 'images/stock.jpg' %}");
+  background-size: cover;
+  position: relative;
+}
+.page-2 {
+  height: 100vh;
+  background: url("{% static 'images/sea.jpg' %}");
+  background-size: cover;
+  padding-top: 100px;
+  /* padding-bottom: 30px; */
+  position: relative;
+}
+</style>
+{% endblock %}
 
-  <!-- Navbar (sit on top) -->
-  <div class="w3-top">
-    <div class="w3-bar w3-black  w3-padding-16 w3-card" id="myNavbar" style="height: 90px;">
-      <div class="w3-bar-left">
-        <a href="#home" class="w3-bar-item"><img src="{% static 'images/logo.png' %}" alt="logo" width="40"
-            height="40"></a>
-        <a href="#home" class="w3-bar-item w3-button"
-          style="font-size: larger; font-weight: bold;"><b>Neuromancer</b></a>
-      </div>
+<!-- 標題 -->
+{% block title %}
+Landing Page
+{% endblock %}
 
-      <!-- Right-sided navbar links -->
-      <a href="#home" class="w3-bar-item w3-button" style="margin-left: 430px; line-height: 16px;">
-        <h2><b>首頁</b> </h2>
-      </a>
-      <div class="w3-right w3-hide-small">
-        <a href="/signup" class="w3-bar-item w3-button"><i class="fa fa-user-plus fa-xl"></i>&nbsp;會員註冊</a>
-        <a href="#about" class="w3-bar-item w3-button"><i class="fa fa-circle-question fa-xl"></i>&nbsp;關於我們</a>
-        <a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-comment fa-xl"></i>&nbsp;聯絡我們</a>
-      </div>
+<!-- 頁首內容 -->
+{% block header %}
+<li>
+    <a href="#page-2" onclick="doCloseMenu()">
+        <div class="en">About Us</div>
+        <div class="tw"><i class="fa fa-circle-question fa-xl"></i>&nbsp; 關於我們</div>
+    </a>
+</li>
+<li>
+    <a href="#page-3" onclick="doCloseMenu()">
+        <div class="en">Contact Us</div>
+        <div class="tw"><i class="fa fa-comment fa-xl"></i>&nbsp; 聯絡我們</div>
+    </a>
+</li>
+<li>
+    <a href="/signup" onclick="doCloseMenu()">
+        <div class="en">Register</div>
+        <div class="tw"><i class="fa fa-user-plus fa-xl"></i>&nbsp; 註冊</div>
+    </a>
+</li>
+{% endblock %}
 
+
+<!-- 內容 -->
+ {% block content %}
+ <div class="page-1">
+    <div class="container">
+        <div class="box wow animate__animated animate__fadeInUpBig animate__delay-1s">
+            <div>
+                <h3 class="slogan">ai股票預測</h3>
+                <div class="box-content left">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, distinctio error voluptatum accusamus est beatae quibusdam veniam animi, repudiandae, exercitationem eligendi earum aliquid incidunt ullam corporis a laboriosam molestias explicabo?
+                </div>
+            </div>
+            <div>
+                <h3 class="slogan"><span><img src="{% static 'images/logo.png' %}" style="width: 50px; height: 50px;"/> </span> <b>會員登入</b></h3>
+                <div class="box-content right">
+                    <form action="">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="帳號" maxlength="10" />
+                            <span class="input-icon">
+                                <span class="iconify" data-icon="bx:user-circle"></span>
+                            </span>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder=" 密碼" />
+                            <span class="input-icon">
+                                <i class="fa fa-lock"></i>
+                                <!-- <span class="iconify" data-icon="cib:mail-ru"></span> -->
+                            </span>
+                        </div>
+                        <div style="text-align: center;">
+                            <button class="button">登入立即預測</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  
-  
-  
-  <!-- Header -->
-  <header class="w3-display-container w3-content w3-wide" style="max-width:1514px;" id="home">
-    <img style="background-position: center; background-size: cover; min-height: 100%;"
-    src="{% static 'images/stock.jpg' %}" alt="stock" width="1514" height="900">
-    <div class="w3-display-middle w3-margin-top w3-center">
-      <a href="/login">
-        <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><i
-          class="fa fa-right-to-bracket fa-xl"></i>&nbsp;<b>登入會員開始預測股票</b></span> </h1>
-        </a>
-      </div>
-    </header>
-  <!-- About Section -->
-  <div class="w3-container" style="padding:128px 16px" id="about">
-    <h1 class="w3-center"><b>關於我們</b> </h1>
-    <p class="w3-center w3-large"><img src="{% static 'images/logo.png' %}" alt="logo" width="40"
-        height="40">&nbsp;Neuromancer</p>
-    <div class="w3-row-padding w3-center" style="margin-top:64px">
-      <div class="w3-quarter">
-        <i class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></i>
-        <p class="w3-large">Responsive</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore.</p>
-      </div>
-      <div class="w3-quarter">
-        <i class="fa fa-heart w3-margin-bottom w3-jumbo"></i>
-        <p class="w3-large">Passion</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore.</p>
-      </div>
-      <div class="w3-quarter">
-        <i class="fa fa-diamond w3-margin-bottom w3-jumbo"></i>
-        <p class="w3-large">Design</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore.</p>
-      </div>
-      <div class="w3-quarter">
-        <i class="fa fa-cog w3-margin-bottom w3-jumbo"></i>
-        <p class="w3-large">Support</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore.</p>
-      </div>
+    <div class="mask"></div>
+</div>
+<div class="page-2" id="page-2">
+    <div class="mask"></div>
+    <div class="container">
+        <h3 class="slogan">關於我們</h3>
+        <div class="flow">
+            <div class="item">
+                <div class="circle"></div>
+                <div class="content wow animate__animated animate__bounceInRight">
+                    <div class="title">Step 1</div>
+                    <div class="text">Some Thing...</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="circle"></div>
+                <div class="content wow animate__animated animate__bounceInLeft">
+                    <div class="title">Step 2</div>
+                    <div class="text">Some Thing...</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="circle"></div>
+                <div class="content wow animate__animated animate__bounceInRight">
+                    <div class="title">Step 3</div>
+                    <div class="text">Some Thing...</div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="circle"></div>
+                <div class="content wow animate__animated animate__bounceInLeft">
+                    <div class="title">Step 4</div>
+                    <div class="text">Some Thing...</div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
+<!-- <div class="wrap"></div> -->
 
 
-  <!-- Contact Section -->
-  <div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
-    <h1 class="w3-center"><b>聯絡我們</b></h1>
-    <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
-    <div style="margin-top:48px">
-      <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Taiwan</p>
-      <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: 0123456789</p>
-      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>
-      <br>
-      <form action="/action_page.php" target="_blank">
-        <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
-        <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
-        <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
-        <p><textarea class="w3-input w3-border" type="text" placeholder="Message" required name="Message"
-            style="resize: vertical;"></textarea></p>
-        <p>
-          <button class="w3-button w3-black" type="submit">
-            <i class="fa fa-paper-plane"></i> SEND MESSAGE
-          </button>
-        </p>
-      </form>
 
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="w3-center  w3-black w3-padding-64">
-    <p><img src="{% static 'images/logo.png' %}" alt="logo" width="40" height="40">&nbsp;<b>Neuromancer</b></p>
-  </footer>
-
-  <script>
-    // Modal Image Gallery
-    function onClick(element) {
-      document.getElementById("img01").src = element.src;
-      document.getElementById("modal01").style.display = "block";
-      var captionText = document.getElementById("caption");
-      captionText.innerHTML = element.alt;
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script>
+    new WOW().init();
+    function doCloseMenu() {
+        document.querySelector('#mobile-menu-switch-checkbox').checked = false;
     }
+</script>
 
 
-    // Toggle between showing and hiding the sidebar when clicking the menu icon
-    var mySidebar = document.getElementById("mySidebar");
++ JavaScript(jQuery)
+<button type="button" id="BackTop" class="toTop-arrow"></button>
+<script>
+$(function(){
+	$('#BackTop').click(function(){ 
+		$('html,body').animate({scrollTop:0}, 333);
+	});
+	$(window).scroll(function() {
+		if ( $(this).scrollTop() > 300 ){
+			$('#BackTop').fadeIn(222);
+		} else {
+			$('#BackTop').stop().fadeOut(222);
+		}
+	}).scroll();
+});
+</script>
+ <!-- 回到最上層 -->
+<button type="button" id="BackTop" class="toTop-arrow"></button>
+<script>
+$(function(){
+	$('#BackTop').click(function(){ 
+		$('html,body').animate({scrollTop:0}, 333);
+	});
+	$(window).scroll(function() {
+		if ( $(this).scrollTop() > 300 ){
+			$('#BackTop').fadeIn(222);
+		} else {
+			$('#BackTop').stop().fadeOut(222);
+		}
+	}).scroll();
+});
+</script>
+ {% endblock %}
 
-    function w3_open() {
-      if (mySidebar.style.display === 'block') {
-        mySidebar.style.display = 'none';
-      } else {
-        mySidebar.style.display = 'block';
-      }
-    }
-
-    // Close the sidebar with the close button
-    function w3_close() {
-      mySidebar.style.display = "none";
-    }
-  </script>
-
-</body>
-
-</html>
+ 
+   

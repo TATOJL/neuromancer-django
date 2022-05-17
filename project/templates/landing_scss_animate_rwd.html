@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="css/landing_scss_rwd.css">
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <input type="checkbox" id="mobile-menu-switch-checkbox">
+        <div class="container wow animate__animated animate__bounceInLeft">
+            <div>
+                <img src="images/logo.svg" alt="">
+            </div>
+            <div class="menu">
+                <ul class="wow animate__animated animate__bounceIn animate__delay-1s">
+                    <li>
+                        <a href="#" onclick="doCloseMenu()">
+                            <div class="en">ABOUT US</div>
+                            <div class="tw">關於赫綵</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="doCloseMenu()">
+                            <div class="en">JOIN US</div>
+                            <div class="tw">加入赫綵</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#page-2" onclick="doCloseMenu()">
+                            <div class="en">COURESE</div>
+                            <div class="tw">課程總覽</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="mobile-menu-switch wow animate__animated animate__bounceIn animate__delay-1s">
+                <label for="mobile-menu-switch-checkbox" class="open-icon">
+                    <span class="iconify" data-icon="ant-design:menu-outlined"></span>
+                </label>
+                <label for="mobile-menu-switch-checkbox" class="close-icon">
+                    <span class="iconify" data-icon="ci:close-big"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="page-1">
+        <div class="container">
+            <div class="box wow animate__animated animate__fadeInUpBig animate__delay-1s">
+                <div>
+                    <h3 class="slogan">加入赫綵，人生精彩</h3>
+                    <div class="box-content left">
+                        就我個人來說，加入赫綵對我的意義，不能不說非常重大。一般來說，儘管如此，我們仍然需要對加入赫綵保持懷疑的態度。加入赫綵可以說是有著成為常識的趨勢。這必定是個前衛大膽的想法。培根說過一句很有意思的話，知識貧乏最能讓人生出許多懷疑。請諸位將這段話在心中默念三遍。儘管如此，別人往往卻不這麼想。
+                    </div>
+                </div>
+                <div>
+                    <h3 class="slogan">加入赫綵，就是現在</h3>
+                    <div class="box-content right">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="姓名" maxlength="10">
+                            <span class="input-icon">
+                                <span class="iconify" data-icon="bx:user-circle"></span>
+                            </span>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="信箱">
+                            <span class="input-icon">
+                                <span class="iconify" data-icon="cib:mail-ru"></span>
+                            </span>
+                        </div>
+                        <div style="text-align: right;">
+                            <button class="button">立即加入</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mask"></div>
+    </div>
+    <div class="page-2" id="page-2">
+        <div class="mask"></div>
+        <div class="container">
+            <h3 class="slogan">課程顧問</h3>
+            <div class="flow">
+                <div class="item">
+                    <div class="circle"></div>
+                    <div class="content wow animate__animated animate__bounceInRight">
+                        <div class="title">Step 1</div>
+                        <div class="text">Some Thing...</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="circle"></div>
+                    <div class="content wow animate__animated animate__bounceInLeft">
+                        <div class="title">Step 2</div>
+                        <div class="text">Some Thing...</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="circle"></div>
+                    <div class="content wow animate__animated animate__bounceInRight">
+                        <div class="title">Step 3</div>
+                        <div class="text">Some Thing...</div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="circle"></div>
+                    <div class="content wow animate__animated animate__bounceInLeft">
+                        <div class="title">Step 4</div>
+                        <div class="text">Some Thing...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="wrap"></div> -->
+    <div class="footer">
+        <div class="container">
+            <div>
+                <img src="images/logo.svg" alt="">
+            </div>
+            <div>&copy; appedu 2021.</div>
+        </div>
+    </div>
+</body>
+
+<script src="js/wow.min.js"></script>
+<script>
+    new WOW().init();
+    function doCloseMenu() {
+        document.querySelector('#mobile-menu-switch-checkbox').checked = false;
+    }
+</script>
+</html>
